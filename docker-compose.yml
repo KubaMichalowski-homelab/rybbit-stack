@@ -27,7 +27,7 @@ services:
       - data
 
   postgres:
-    image: postgres:17.4
+    image: postgres:17.9
     container_name: postgres
     environment:
       - POSTGRES_USER=${POSTGRES_USER:-frog}
