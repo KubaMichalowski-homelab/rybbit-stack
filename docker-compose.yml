@@ -59,7 +59,9 @@ services:
       - POSTGRES_USER=${POSTGRES_USER:-frog}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-frog}
       - BETTER_AUTH_SECRET=${BETTER_AUTH_SECRET}
-      - BASE_URL=${BASE_URL} # Tutaj podaj publiczny adres tunelu (np. https://api.twoja-domena.pl)
+      - BASE_URL=${BASE_URL}
+      - BETTER_AUTH_ALLOWED_ORIGINS=${LOCAL_URL}
+      - NEXT_PUBLIC_CLIENT_URL=${LOCAL_URL}
       - DISABLE_SIGNUP=${DISABLE_SIGNUP}
       - DISABLE_TELEMETRY=${DISABLE_TELEMETRY}
       - MAPBOX_TOKEN=${MAPBOX_TOKEN}
