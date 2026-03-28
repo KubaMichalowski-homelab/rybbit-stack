@@ -73,14 +73,19 @@ services:
       - public
 
   client:
-    image: ghcr.io/rybbit-io/rybbit-client:${IMAGE_TAG:-latest}
     container_name: client
+    build:
+      context: https://github.com/rybbit-io/rybbit.git#main
+      dockerfile: client/Dockerfile
+      args:
+        NEXT_PUBLIC_BACKEND_URL: ${BASE_URL}
+        NEXT_PUBLIC_DISABLE_SIGNUP: ${DISABLE_SIGNUP}
     ports:
       - "3002:3002"
     environment:
       - NODE_ENV=production
-      - NEXT_PUBLIC_BACKEND_URL=${BASE_URL} # Musi być adresem PUBLICZNYM, bo przeglądarka użytkownika tam uderza
-      - NEXT_PUBLIC_DISABLE_SIGNUP=${DISABLE_SIGNUP}
+      - NEXT_PUBLIC_BACKEND_URL=${BASE_URL}
+      - BETTER_AUTH_URL=${BASE_URL}
     restart: unless-stopped
 
   tunnel:
