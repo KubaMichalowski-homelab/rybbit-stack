@@ -75,7 +75,7 @@ services:
   client:
     container_name: client
     build:
-      context: https://github.com/rybbit-io/rybbit.git#main
+      context: https://github.com/rybbit-io/rybbit.git#master
       dockerfile: client/Dockerfile
       args:
         NEXT_PUBLIC_BACKEND_URL: ${BASE_URL}
