@@ -1,7 +1,7 @@
 services:
   clickhouse:
     container_name: clickhouse
-    image: clickhouse/clickhouse-server:25.4.2
+    image: clickhouse/clickhouse-server:25.12.9
     volumes:
       - /opt/docker/rybbit/clickhouse-data:/var/lib/clickhouse
     configs:
