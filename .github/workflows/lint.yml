@@ -3,4 +3,4 @@ on: [push, pull_request]
 
 jobs:
   lint:
-    uses: KubaMichalowski-homelab/.github/.github/workflows/lint.yml@v1.0.0
+    uses: KubaMichalowski-homelab/.github/.github/workflows/lint.yml@v1
