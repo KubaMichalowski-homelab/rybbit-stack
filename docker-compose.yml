@@ -50,6 +50,7 @@ services:
     restart: unless-stopped
     environment:
       - NODE_ENV=production
+      - TRUST_PROXY=true
       - CLICKHOUSE_HOST=http://clickhouse:8123
       - CLICKHOUSE_DB=${CLICKHOUSE_DB:-analytics}
       - CLICKHOUSE_PASSWORD=${CLICKHOUSE_PASSWORD:-frog}
@@ -60,9 +61,9 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-frog}
       - BETTER_AUTH_SECRET=${BETTER_AUTH_SECRET}
       - BASE_URL=${BASE_URL}
-      - BETTER_AUTH_ALLOWED_ORIGINS=
-      - BETTER_AUTH_TRUSTED_ORIGINS=
-      - BETTER_AUTH_URL=
+      - BETTER_AUTH_ALLOWED_ORIGINS=${BETTER_AUTH_ALLOWED_ORIGINS}
+      - BETTER_AUTH_TRUSTED_ORIGINS=${BETTER_AUTH_TRUSTED_ORIGINS}
+      - BETTER_AUTH_URL=${BETTER_AUTH_URL}
       - DISABLE_SIGNUP=${DISABLE_SIGNUP}
       - DISABLE_TELEMETRY=${DISABLE_TELEMETRY}
       - MAPBOX_TOKEN=${MAPBOX_TOKEN}
@@ -78,7 +79,7 @@ services:
   client:
     container_name: client
     build:
-      context: https://github.com/rybbit-io/rybbit.git#master
+      context: https://github.com/rybbit-io/rybbit.git#v2.5.0
       dockerfile: client/Dockerfile
       args:
         NEXT_PUBLIC_BACKEND_URL: ${BASE_URL}
