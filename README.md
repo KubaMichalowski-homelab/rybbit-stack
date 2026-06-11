@@ -21,17 +21,6 @@ I use bind mounts for data persistence. Ensure these paths exist on the Docker h
 * `/opt/docker/rybbit/postgres` - PostgreSQL database data
 * `/opt/docker/rybbit/clickhouse-data` - ClickHouse analytics data
 
-## Deployment
-1. Clone this repository.
-2. Copy `.env.example` and adjust values.
-```bash
-cp .env.example .env
-```
-3. Deploy using Docker Compose:
-```bash
-docker compose up -d --build
-```
-
 ---
 
 [Back to Homelab Overview](https://github.com/KubaMichalowski-homelab)
