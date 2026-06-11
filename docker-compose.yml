@@ -77,13 +77,8 @@ services:
       - public
 
   client:
+    image: kubamichalowski/rybbit-client:v2.6.1
     container_name: client
-    build:
-      context: https://github.com/rybbit-io/rybbit.git#v2.6.0
-      dockerfile: client/Dockerfile
-      args:
-        NEXT_PUBLIC_BACKEND_URL: ${BASE_URL}
-        NEXT_PUBLIC_DISABLE_SIGNUP: ${DISABLE_SIGNUP}
     ports:
       - "3002:3002"
     environment:
