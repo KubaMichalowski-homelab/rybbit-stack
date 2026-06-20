@@ -88,7 +88,7 @@ services:
     restart: unless-stopped
 
   tunnel:
-    image: cloudflare/cloudflared:2026.6.0
+    image: cloudflare/cloudflared:2026.6.1
     container_name: tunnel
     restart: unless-stopped
     command: tunnel --no-autoupdate run --token ${TUNNEL_TOKEN}
