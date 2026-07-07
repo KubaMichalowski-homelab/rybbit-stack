@@ -77,7 +77,7 @@ services:
       - public
 
   client:
-    image: kubamichalowski/rybbit-client:v2.6.1
+    image: kubamichalowski/rybbit-client:v2.7.0
     container_name: client
     ports:
       - "3002:3002"
