@@ -8,12 +8,11 @@ The stack relies on the following environment variables:
 | :--- | :--- | :--- |
 | `TUNNEL_TOKEN` | Cloudflare Tunnel token | `(Secret)` |
 | `BASE_URL` | Public URL of the backend API | `https://analytics.domain.tld` |
-| `BETTER_AUTH_ALLOWED_ORIGINS` | Allowed frontend origins (comma-separated) | `https://rybbit.domain.tld` |
-| `BETTER_AUTH_TRUSTED_ORIGINS` | Allowed frontend origins (comma-separated) | `https://rybbit.domain.tld` |
-| `BETTER_AUTH_URL` | Public URL of the backend API | `https://analytics.domain.tld` |
+| `DOMAIN_NAME` | Domain name | `rybbit.domain.tld` |
 | `BETTER_AUTH_SECRET` | 32-byte random string | `(Secret)` |
 | `CLICKHOUSE_PASSWORD` | Random string | `(Secret)` |
 | `POSTGRES_PASSWORD` | Random string | `(Secret)` |
+| `REDIS_PASSWORD` | Random string | `(Secret)` |
 | `MAPBOX_TOKEN` | Token for Mapbox integration | `(Secret)` |
 
 ## Persistent Storage
