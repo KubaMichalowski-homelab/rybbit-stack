@@ -88,10 +88,10 @@ services:
       - REDIS_PORT=6379
       - REDIS_PASSWORD=${REDIS_PASSWORD:-changeme}
       - BETTER_AUTH_SECRET=${BETTER_AUTH_SECRET}
+      - BETTER_AUTH_URL=${BASE_URL}
+      - BETTER_AUTH_TRUSTED_ORIGINS=${BASE_URL}
       - BASE_URL=${BASE_URL}
-      - BETTER_AUTH_ALLOWED_ORIGINS=${BETTER_AUTH_ALLOWED_ORIGINS}
-      - BETTER_AUTH_TRUSTED_ORIGINS=${BETTER_AUTH_TRUSTED_ORIGINS}
-      - BETTER_AUTH_URL=${BETTER_AUTH_URL}
+      - DOMAIN_NAME=${DOMAIN_NAME}
       - DISABLE_SIGNUP=${DISABLE_SIGNUP}
       - DISABLE_TELEMETRY=${DISABLE_TELEMETRY}
       - MAPBOX_TOKEN=${MAPBOX_TOKEN}
@@ -106,16 +106,19 @@ services:
       - data
       - public
 
-  client:
-    image: kubamichalowski/rybbit-client:v2.8.0
-    container_name: client
-    ports:
-      - "3002:3002"
+  frontend:
+    image: ghcr.io/rybbit-io/rybbit-client:v2.8.0
+    container_name: frontend
     environment:
       - NODE_ENV=production
       - NEXT_PUBLIC_BACKEND_URL=${BASE_URL}
-      - BETTER_AUTH_URL=${BASE_URL}
+      - NEXT_PUBLIC_DISABLE_SIGNUP=${DISABLE_SIGNUP}
+      - DOMAIN_NAME=${DOMAIN_NAME}
+    depends_on:
+      - backend
     restart: unless-stopped
+    networks:
+      - public
 
   tunnel:
     image: cloudflare/cloudflared:2026.8.2
@@ -124,6 +127,7 @@ services:
     command: tunnel --no-autoupdate run --token ${TUNNEL_TOKEN}
     depends_on:
       - backend
+      - frontend
     networks:
       - public
 
