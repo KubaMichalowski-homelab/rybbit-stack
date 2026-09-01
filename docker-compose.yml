@@ -121,7 +121,7 @@ services:
       - public
 
   tunnel:
-    image: cloudflare/cloudflared:2026.8.2
+    image: cloudflare/cloudflared:2026.8.3
     container_name: tunnel
     restart: unless-stopped
     command: tunnel --no-autoupdate run --token ${TUNNEL_TOKEN}
