@@ -107,7 +107,7 @@ services:
       - public
 
   frontend:
-    image: ghcr.io/rybbit-io/rybbit-client:v2.8.0
+    image: ghcr.io/rybbit-io/rybbit-client:v2.9.1
     container_name: frontend
     environment:
       - NODE_ENV=production
