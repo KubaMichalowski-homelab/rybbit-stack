@@ -45,7 +45,7 @@ services:
       - data
 
   redis:
-    image: redis:8.10.3-alpine
+    image: redis:8.12.0-alpine
     container_name: redis
     volumes:
       - /opt/docker/rybbit/redis:/data
